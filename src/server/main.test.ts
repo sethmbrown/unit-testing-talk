@@ -13,5 +13,7 @@ describe("/contrived-example", () => {
 
     const res = await request(app).get("/contrived-example").query(query);
     console.log("🚀 ~ test ~ res:", res.status);
+
+    expect(false).toBeTruthy();
   });
 });
