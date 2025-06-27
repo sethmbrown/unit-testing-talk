@@ -37,6 +37,8 @@ app.get(
       (acc, [permissionType, permissionList]) => {
         if (permissionList.includes(userId)) {
           acc.push(permissionType);
+        } else {
+          acc.push("none");
         }
 
         return acc;
@@ -69,30 +71,3 @@ ViteExpress.listen(
   3000,
   () => console.log("Server is listening on port 3000...") // istanbul ignore next
 );
-
-// const validation = validateQueryParams(req.query);
-
-// if (validation?.status) {
-//   res.status(validation.status).send(validation.message);
-//   return;
-// }
-
-// const validateQueryParams = ({
-//   userId,
-//   businessId,
-//   action,
-// }: ContrivedExampleQueryParams): { status: number; message: string } | null => {
-//   if (!userId) {
-//     return { status: 401, message: "Unauthorized" };
-//   }
-
-//   if (!businessId) {
-//     return { status: 403, message: "Not permitted" };
-//   }
-
-//   if (!action) {
-//     return { status: 400, message: "Bad request" };
-//   }
-
-//   return null;
-// };
